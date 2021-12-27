@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/yellow"
+        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        app:title="hityourmacros"
+        app:titleTextColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Goal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp"
+                                android:text="Breakfast"
+                                app:layout_constraintBottom_toTopOf="@+id/pbMeal1"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal1"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal1" />
+
+                            <ProgressBar
+                                android:id="@+id/pbMeal1"
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginBottom="-25dp"
+                                android:indeterminateOnly="false"
+                                android:progress="21"
+                                android:progressDrawable="@drawable/circle"
+                                android:rotation="-90"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/txtViewMeal1Cals"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="67%"
+                                app:layout_constraintBottom_toBottomOf="@+id/pbMeal1"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal1"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal1"
+                                app:layout_constraintTop_toTopOf="@+id/pbMeal1" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp"
+                                android:text="Lunch"
+                                app:layout_constraintBottom_toTopOf="@+id/pbMeal2"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal2"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal2" />
+
+                            <ProgressBar
+                                android:id="@+id/pbMeal2"
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginBottom="-25dp"
+                                android:indeterminateOnly="false"
+                                android:progress="34"
+                                android:progressDrawable="@drawable/circle"
+                                android:rotation="-90"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/txtViewMeal2Cals"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="67%"
+                                app:layout_constraintBottom_toBottomOf="@+id/pbMeal2"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal2"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal2"
+                                app:layout_constraintTop_toTopOf="@+id/pbMeal2" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp"
+                                android:text="Supper"
+                                app:layout_constraintBottom_toTopOf="@+id/pbMeal3"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal3"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal3" />
+
+                            <ProgressBar
+                                android:id="@+id/pbMeal3"
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginBottom="-25dp"
+                                android:indeterminateOnly="false"
+                                android:progress="66"
+                                android:progressDrawable="@drawable/circle"
+                                android:rotation="-90"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/txtViewMeal3Cals"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="67%"
+                                app:layout_constraintBottom_toBottomOf="@+id/pbMeal3"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal3"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal3"
+                                app:layout_constraintTop_toTopOf="@+id/pbMeal3" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="5dp"
+                                android:text="Dinner"
+                                app:layout_constraintBottom_toTopOf="@+id/pbMeal4"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal4"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal4" />
+
+                            <ProgressBar
+                                android:id="@+id/pbMeal4"
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginBottom="-25dp"
+                                android:indeterminateOnly="false"
+                                android:progress="12"
+                                android:progressDrawable="@drawable/circle"
+                                android:rotation="-90"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/txtViewMeal4Cals"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="67%"
+                                app:layout_constraintBottom_toBottomOf="@+id/pbMeal4"
+                                app:layout_constraintEnd_toEndOf="@+id/pbMeal4"
+                                app:layout_constraintStart_toStartOf="@+id/pbMeal4"
+                                app:layout_constraintTop_toTopOf="@+id/pbMeal4" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/txtViewTotalProtein"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="145/190"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp"
+                                android:drawableStart="@drawable/ic_protein" />
+
+                            <TextView
+                                android:id="@+id/txtViewLeftP"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Protein"
+                                android:textSize="16sp" />
+
+                            <ProgressBar
+                                android:id="@+id/pbProtein"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:progressBackgroundTint="@color/yellowLight" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtViewTotalCarbs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="120/389"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp"
+                                android:drawableStart="@drawable/ic_carbs" />
+                            <TextView
+                                android:id="@+id/txtViewLeftC"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Carbs"
+                                android:textSize="16sp" />
+
+                            <ProgressBar
+                                android:id="@+id/pbCarbs"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:progressBackgroundTint="@color/yellowLight" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtViewTotalFats"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="34/97"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp"
+                                android:drawableStart="@drawable/ic_fats" />
+
+                            <TextView
+                                android:id="@+id/txtViewLeftF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fats"
+                                android:textSize="16sp" />
+
+                            <ProgressBar
+                                android:id="@+id/pbFats"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:progressBackgroundTint="@color/yellowLight" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ProgressBar
+                                android:id="@+id/pbTotal"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_margin="10dp"
+                                android:indeterminateOnly="false"
+                                android:progress="30"
+                                android:progressDrawable="@drawable/circle_large"
+                                android:rotation="-90"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/txtViewCalPercentage"
+                                style="@style/TextAppearance.AppCompat.Large"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="67%"
+                                app:layout_constraintBottom_toBottomOf="@+id/pbTotal"
+                                app:layout_constraintEnd_toEndOf="@+id/pbTotal"
+                                app:layout_constraintStart_toStartOf="@+id/pbTotal"
+                                app:layout_constraintTop_toTopOf="@+id/pbTotal" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:text="Goal"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/txtViewFinalCals"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="-------"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="22dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:text="Total"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/txtViewTotalCals"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="-------"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:text="Left"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/txtViewLeftCals"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="-------"
+                                    android:textSize="18sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_weight="2"
+                                android:text="Meal"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Protein"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Carbs"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Fats"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:drawableStart="@drawable/ic_breakfast"
+                                android:drawablePadding="5dp"
+                                android:layout_weight="2"
+                                android:text="Breakfast"/>
+                            <TextView
+                                android:id="@+id/mp1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Protein"/>
+                            <TextView
+                                android:id="@+id/mc1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Carbs"/>
+                            <TextView
+                                android:id="@+id/mf1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Fats"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:drawableStart="@drawable/ic_lunch"
+                                android:drawablePadding="5dp"
+                                android:layout_weight="2"
+                                android:text="Lunch"/>
+                            <TextView
+                                android:id="@+id/mp2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Protein"/>
+                            <TextView
+                                android:id="@+id/mc2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Carbs"/>
+                            <TextView
+                                android:id="@+id/mf2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Fats"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:layout_marginBottom="15dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:drawableStart="@drawable/ic_supper"
+                                android:drawablePadding="5dp"
+                                android:layout_weight="2"
+                                android:text="Supper"/>
+                            <TextView
+                                android:id="@+id/mp3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Protein"/>
+                            <TextView
+                                android:id="@+id/mc3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Carbs"/>
+                            <TextView
+                                android:id="@+id/mf3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Fats"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:drawableStart="@drawable/ic_dinner"
+                                android:drawablePadding="5dp"
+                                android:text="Dinner"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/mp4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Protein"/>
+                            <TextView
+                                android:id="@+id/mc4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Carbs"/>
+                            <TextView
+                                android:id="@+id/mf4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textAlignment="viewEnd"
+                                android:layout_weight="0.66"
+                                android:text="Fats"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

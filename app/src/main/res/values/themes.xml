@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Hym" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryDark">@color/yellowDark</item>
+        <item name="colorAccent">@color/yellow</item>
+        <item name="android:statusBarColor">@color/yellowDark</item>
+    </style>
+</resources>

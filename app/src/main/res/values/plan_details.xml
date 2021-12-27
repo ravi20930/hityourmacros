@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string
+        name="plan1"
+        >This training can be done 3-4 days a week.
+        Muscle growth occurs during both high and low load exercises.
+        Using the lower rep range but higher sets allows you to use a higher load,
+        creating hypertrophy and strength increase. You are going to need a lot of rest
+        but not too much to allow recover from the last set. If you need recovery for
+        your nervous system or muscles, take an extra day off.</string>
+
+    <string
+        name="plan2"
+        >This training can be done 2-4 days a week. Perform this workout less often the longer you\'ve been in your cut. Start at 4 days a week, taking going down to 3 after 3-4 weeks and then down to 2 in the final weeks of a cut. You can also take an extra day off if you ever feel you need extra recovery time.
+        This program would not focus on strength.
+        Your only goal is to do as many reps as possible without over exerting muscle fibers to
+        the point they cannot recover. Using compound movements ensure you burn the most calories per rep.
+        Using lower rest periods will ensure the heart rate stays high.</string>
+
+    <string
+        name="plan3"
+        >This program is all about volume. Within a workout you will be performing 80 total reps per movement
+        pattern to cover all muscle groups. You will notice the "load" has a larger range and uses an effort rating, 1-10.
+        Hypertrophy, while it does have science behind it, is best found with a level of effort.
+        Your first set I want you to begin at a solid 7.5/10. Then second set go to 8,
+        third set go to 8.5 and continue to use 8.5 until you cannot get all 10 reps any more.
+        When you get to that point, drop down to a weight that is still at or above 7/10 effort and finish the reps and sets.</string>
+
+    <string
+        name="plan4"
+        >Can be done 4-5 days in a week. In this training every two movements are a superset. You are going to hit one movement that is heavy to have load specific stimuli for the muscle fiber and nervous system. The next movement in the superset is the secret weapon. These body weight movements are going to be used for training speed. After using the heavy reps, deep muscle fibers are activated and tired. While these fibers are tired, very light movements can be used to activate even deeper muscle fibers without needing to go to even heavier loads. This style of training, like a strip set, increases power. Increasing your body\'s ability to move a heavy load faster is half to battle getting stronger and lose fat.</string>
+
+    <string
+        name="absPlan"
+        >Perform the ab exercises prior to the workout 2-3 times a week. You may choose from the following three ab circuits to perform before each workout.</string>
+
+</resources>

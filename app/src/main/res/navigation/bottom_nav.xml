@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/goal">
+
+    <fragment
+        android:id="@+id/recipes"
+        android:name="com.itisravi.hym.Track"
+        android:label="fragment_recipes"
+        tools:layout="@layout/fragment_track" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.itisravi.hym.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/goal"
+        android:name="com.itisravi.hym.Goal"
+        android:label="fragment_goal"
+        tools:layout="@layout/fragment_goal" />
+    <fragment
+        android:id="@+id/workout"
+        android:name="com.itisravi.hym.Workout"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" />
+</navigation>

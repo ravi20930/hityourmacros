@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">hym</string>
+
+
+    <string-array name="activityLevels">
+        <item>Little/no exercise</item>
+        <item>Light exercise</item>
+        <item>Moderate exercise</item>
+        <item>Very active</item>
+        <item>Extra active</item>
+    </string-array>
+
+    <string-array name="maintenance">
+        <item>Maintain weight</item>
+    </string-array>
+
+    <string-array name="weeklyLoseGoal">
+        <item>Lose 1kg per week</item>
+        <item>Lose 0.5kg per week</item>
+        <item>Lose 0.25kg per week</item>
+    </string-array>
+
+    <string-array name="weeklyGainGoal">
+        <item>Gain 0.5kg per week</item>
+        <item>Gain 0.25kg per week</item>
+    </string-array>
+
+    <string-array name="goal">
+        <item>Maintenance</item>
+        <item>Gain weight</item>
+        <item>Loose weight</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "938666642491",
+    "project_id": "hityourmacros",
+    "storage_bucket": "hityourmacros.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938666642491:android:07ed39ec2b6321ef25e01e",
+        "android_client_info": {
+          "package_name": "com.itisravi.hym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938666642491-65u0eompjbn7mrcljo2lekl8ihmkgle8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhwuTz59IsRQvFT5Iyecn15OQSkSioB2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938666642491-65u0eompjbn7mrcljo2lekl8ihmkgle8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
