@@ -2,7 +2,6 @@ package com.itisravi.hym;
 
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Goal extends Fragment {
@@ -26,13 +20,15 @@ public class Goal extends Fragment {
     float weight, height, bmrGeneral;
     int age, activityLevel, goal, intKcal, kcalGain, kcalLose, gramsP, gramsC, gramsF;
     String gender;
-    TextView inGramsP, inGramsC, inGramsF, finalCals, txtViewTotalProtein, txtViewTotalFats, txtViewTotalCarbs,
+    TextView finalCals, txtViewTotalProtein, txtViewTotalFats, txtViewTotalCarbs,
             txtViewTotalCals, txtViewLeftCals, txtViewLeftP, txtViewLeftC, txtViewLeftF,
             txtViewMeal4Cals, txtViewMeal3Cals, txtViewMeal2Cals, txtViewMeal1Cals, txtViewCalPercentage;
     TextView mp1, mp2, mp3, mp4, mc1, mc2, mc3, mc4, mf1, mf2, mf3, mf4;
     ProgressBar pbProtein, pbCarbs, pbFats, pbMeal1, pbMeal2, pbMeal3, pbMeal4, pbTotal;
     SharedPreferences personMacros;
     SharedPreferences.Editor macrosEditor;
+    private boolean checkCustomMacros;
+
 
     public Goal() {
     }
@@ -50,10 +46,15 @@ public class Goal extends Fragment {
         pbTotal = view.findViewById(R.id.pbTotal);
         txtViewCalPercentage = view.findViewById(R.id.txtViewCalPercentage);
 
-
-        pbProtein.setProgress(getTotalMacros("protein") * 100 / gramsP);
-        pbCarbs.setProgress(getTotalMacros("carbs") * 100 / gramsC);
-        pbFats.setProgress(getTotalMacros("fats") * 100 / gramsF);
+        if (getTotalMacros("kcals") == 0) {
+            pbProtein.setProgress(0);
+            pbCarbs.setProgress(0);
+            pbFats.setProgress(0);
+        } else {
+            pbProtein.setProgress(getTotalMacros("protein") * 100 / gramsP);
+            pbCarbs.setProgress(getTotalMacros("carbs") * 100 / gramsC);
+            pbFats.setProgress(getTotalMacros("fats") * 100 / gramsF);
+        }
 
         if (getTotalMacros("kcals") == 0) {
             pbMeal1.setProgress(0);
@@ -98,38 +99,60 @@ public class Goal extends Fragment {
         }
     }
 
-    private void inGramsGain() {
-        kcalGain = intKcal + 300;
-        gramsP = kcalGain * 25 / 400;
-        gramsC = kcalGain * 45 / 400;
-        gramsF = kcalGain * 30 / 900;
-    }
-
-    private void inGramsLose() {
-        kcalLose = intKcal - 300;
-        gramsP = kcalLose * 35 / 400;
-        gramsC = kcalLose * 25 / 400;
-        gramsF = kcalLose * 40 / 900;
-    }
-
-    private void inGrams() {
-        gramsP = intKcal * 20 / 400;
-        gramsC = intKcal * 50 / 400;
-        gramsF = intKcal * 30 / 900;
+    private void callGoal(int goal) {
+        if (checkCustomMacros) {
+            gramsP = personMacros.getInt("customP", 0);
+            gramsC = personMacros.getInt("customC", 0);
+            gramsF = personMacros.getInt("customF", 0);
+            finalCals.setText("" + personMacros.getInt("finalCals", 0));
+        } else {
+            switch (goal) {
+                case 1:
+                    kcalGain = intKcal + 300;
+                    gramsP = kcalGain * 25 / 400;
+                    gramsC = kcalGain * 45 / 400;
+                    gramsF = kcalGain * 30 / 900;
+                    macrosEditor.putInt("finalCals", kcalGain);
+                    macrosEditor.putInt("gramsP", gramsP);
+                    macrosEditor.putInt("gramsC", gramsC);
+                    macrosEditor.putInt("gramsF", gramsF);
+                    finalCals.setText("" + kcalGain);
+                    break;
+                case 2:
+                    kcalLose = intKcal - 300;
+                    gramsP = kcalLose * 35 / 400;
+                    gramsC = kcalLose * 25 / 400;
+                    gramsF = kcalLose * 40 / 900;
+                    macrosEditor.putInt("finalCals", kcalLose);
+                    macrosEditor.putInt("gramsP", gramsP);
+                    macrosEditor.putInt("gramsC", gramsC);
+                    macrosEditor.putInt("gramsF", gramsF);
+                    finalCals.setText("" + kcalLose);
+                    break;
+                default:
+                    gramsP = intKcal * 20 / 400;
+                    gramsC = intKcal * 50 / 400;
+                    gramsF = intKcal * 30 / 900;
+                    macrosEditor.putInt("finalCals", intKcal);
+                    macrosEditor.putInt("gramsP", gramsP);
+                    macrosEditor.putInt("gramsC", gramsC);
+                    macrosEditor.putInt("gramsF", gramsF);
+                    finalCals.setText("" + intKcal);
+                    break;
+            }
+            macrosEditor.apply();
+        }
     }
 
 
     private void setTextInGrams() {
-//        inGramsP.setText(gramsP + "");
-//        inGramsC.setText(gramsC + "");
-//        inGramsF.setText(gramsF + "");
 
-        txtViewTotalCals.setText(getTotalMacros("kcals")+"");
-        txtViewTotalProtein.setText(getTotalMacros("protein")+" / "+gramsP);
+        txtViewTotalCals.setText(getTotalMacros("kcals") + "");
 
-        txtViewTotalCarbs.setText(getTotalMacros("carbs")+" / "+gramsC);
+        txtViewTotalProtein.setText(getTotalMacros("protein") + " / " + gramsP);
+        txtViewTotalCarbs.setText(getTotalMacros("carbs") + " / " + gramsC);
+        txtViewTotalFats.setText(getTotalMacros("fats") + " / " + gramsF);
 
-        txtViewTotalFats.setText(getTotalMacros("fats")+" / "+gramsF);
         txtViewLeftCals.setText("" + (personMacros.getInt("finalCals", 0) - getTotalMacros("kcals")));
 
         txtViewLeftC.setText("" + (gramsC - getTotalMacros("carbs")));
@@ -153,24 +176,24 @@ public class Goal extends Fragment {
 
         switch (mealId) {
             case 1:
-                mp1.setText(""+getMealMacros("protein", 1));
-                mc1.setText(""+getMealMacros("carbs", 1));
-                mf1.setText(""+getMealMacros("fats", 1));
+                mp1.setText("" + getMealMacros("protein", 1));
+                mc1.setText("" + getMealMacros("carbs", 1));
+                mf1.setText("" + getMealMacros("fats", 1));
                 break;
             case 2:
-                mp2.setText(""+getMealMacros("protein", 2));
-                mc2.setText(""+getMealMacros("carbs", 2));
-                mf2.setText(""+getMealMacros("fats", 2));
+                mp2.setText("" + getMealMacros("protein", 2));
+                mc2.setText("" + getMealMacros("carbs", 2));
+                mf2.setText("" + getMealMacros("fats", 2));
                 break;
             case 3:
-                mp3.setText(""+getMealMacros("protein", 3));
-                mc3.setText(""+getMealMacros("carbs", 3));
-                mf3.setText(""+getMealMacros("fats", 3));
+                mp3.setText("" + getMealMacros("protein", 3));
+                mc3.setText("" + getMealMacros("carbs", 3));
+                mf3.setText("" + getMealMacros("fats", 3));
                 break;
             case 4:
-                mp4.setText(""+getMealMacros("protein", 4));
-                mc4.setText(""+getMealMacros("carbs", 4));
-                mf4.setText(""+getMealMacros("fats", 4));
+                mp4.setText("" + getMealMacros("protein", 4));
+                mc4.setText("" + getMealMacros("carbs", 4));
+                mf4.setText("" + getMealMacros("fats", 4));
                 break;
         }
     }
@@ -220,31 +243,8 @@ public class Goal extends Fragment {
         intKcal = Math.round(kcal);
     }
 
-    private void callGoal(int goal) {
-        switch (goal) {
-            case 1:
-                inGramsGain();
-                finalCals.setText("" + kcalGain);
-                macrosEditor.putInt("finalCals", kcalGain);
-                break;
-            case 2:
-                inGramsLose();
-                finalCals.setText("" + kcalLose);
-                macrosEditor.putInt("finalCals", kcalLose);
-                break;
-            default:
-                inGrams();
-                finalCals.setText("" + intKcal);
-                macrosEditor.putInt("finalCals", intKcal);
-                break;
-        }
-        macrosEditor.apply();
-    }
 
     private void initTexts() {
-//        inGramsP = view.findViewById(R.id.txtViewGramsP);
-//        inGramsC = view.findViewById(R.id.txtViewGramsC);
-//        inGramsF = view.findViewById(R.id.txtViewGramsF);
         finalCals = view.findViewById(R.id.txtViewFinalCals);
         txtViewTotalProtein = view.findViewById(R.id.txtViewTotalProtein);
         txtViewTotalCarbs = view.findViewById(R.id.txtViewTotalCarbs);
@@ -279,6 +279,7 @@ public class Goal extends Fragment {
         SharedPreferences personActivityAndGoal = getActivity().getSharedPreferences("personActivityAndGoal", getActivity().MODE_PRIVATE);
 
         personMacros = getActivity().getSharedPreferences("personMacros", getActivity().MODE_PRIVATE);
+        checkCustomMacros = personMacros.getBoolean("customMacros", false);
         macrosEditor = personMacros.edit();
 
         age = personData.getInt("age", 0);

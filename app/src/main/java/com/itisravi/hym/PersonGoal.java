@@ -140,31 +140,28 @@ public class PersonGoal extends AppCompatActivity {
         dropDownActivity();
 
         btnProceed = findViewById(R.id.btnProceed);
-        btnProceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnProceed.setOnClickListener(v -> {
 
-                SharedPreferences personActivityAndGoal = getSharedPreferences("personActivityAndGoal", MODE_PRIVATE);
-                SharedPreferences.Editor editor = personActivityAndGoal.edit();
+            SharedPreferences personActivityAndGoal = getSharedPreferences("personActivityAndGoal", MODE_PRIVATE);
+            SharedPreferences.Editor editor = personActivityAndGoal.edit();
 
-                Toast.makeText(PersonGoal.this, "Preferences recorded", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PersonGoal.this, "Preferences recorded", Toast.LENGTH_SHORT).show();
 
-                editor.putInt("activityLevel", activityChoice);
-                editor.putInt("goal", goalChoice);
+            editor.putInt("activityLevel", activityChoice);
+            editor.putInt("goal", goalChoice);
 
-                if (weeklyGainChoice != 5) {
-                    editor.putInt("weeklyGainChoice", weeklyGainChoice);
-                }
-                if (weeklyLoseChoice != 5) {
-                    editor.putInt("weeklyLoseChoice", weeklyLoseChoice);
-                }
-
-                editor.apply();
-
-                Intent intent = new Intent(PersonGoal.this, MainActivity.class);
-                startActivity(intent);
-                finishAffinity();
+            if (weeklyGainChoice != 5) {
+                editor.putInt("weeklyGainChoice", weeklyGainChoice);
             }
+            if (weeklyLoseChoice != 5) {
+                editor.putInt("weeklyLoseChoice", weeklyLoseChoice);
+            }
+
+            editor.apply();
+
+            Intent intent = new Intent(PersonGoal.this, MainActivity.class);
+            startActivity(intent);
+            finishAffinity();
         });
 
     }

@@ -14,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 public class Profile extends Fragment {
 
     View view;
@@ -30,10 +34,14 @@ public class Profile extends Fragment {
     int age;
     float weight, height;
     String gender;
-    EditText editTextUpdateWeight, editTextGoalWeight;
+    EditText editTextUpdateWeight, editTextGoalWeight, customProtein, customCarbs, customFats;
     TextView txtViewEditProfile, txtViewGender, txtViewAge, txtViewWeight, txtViewHeight,
-            txtViewActivityLevel, txtViewWeeklyGoal, txtViewWt, txtViewWf, txtViewGoal;
+            txtViewActivityLevel, txtViewWeeklyGoal, txtViewWt, txtViewWf, txtViewGoal, saveCustomMacros,
+            customTotalCalories;
     int activityLevel, goal, weeklyGainChoice, weeklyLoseChoice;
+    private SharedPreferences personMacros;
+    private LinearLayout customMacrosLayout;
+    private SwitchMaterial customMacrosSwitch;
 
     private void showToast(String msg) {
         Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
@@ -48,6 +56,7 @@ public class Profile extends Fragment {
         txtViewWt = view.findViewById(R.id.txtViewWt);
         txtViewWf = view.findViewById(R.id.txtViewWf);
         txtViewEditProfile = view.findViewById(R.id.txtViewEditProfile);
+        saveCustomMacros = view.findViewById(R.id.saveCustomMacros);
         txtViewWeeklyGoal = view.findViewById(R.id.txtViewWeeklyGoal);
         txtViewGoal = view.findViewById(R.id.txtViewGoal);
         btnUpdateWeight = view.findViewById(R.id.btnUpdateWeight);
@@ -56,6 +65,13 @@ public class Profile extends Fragment {
         btnSetGoalWeight = view.findViewById(R.id.btnSetGoalWeight);
         editTextGoalWeight = view.findViewById(R.id.editTextGoalWeight);
         btnGoalWeightConfirm = view.findViewById(R.id.btnGoalWeightConfirm);
+
+        customProtein = view.findViewById(R.id.customProtein);
+        customCarbs = view.findViewById(R.id.customCarbs);
+        customFats = view.findViewById(R.id.customFats);
+        customTotalCalories = view.findViewById(R.id.customTotalCalories);
+
+        customMacrosSwitch = view.findViewById(R.id.customMacrosSwitch);
     }
 
     private void setTexts() {
@@ -66,7 +82,9 @@ public class Profile extends Fragment {
         txtViewHeight.setText(String.valueOf(personData.getFloat("height", 0)));
         txtViewAge.setText(String.valueOf(personData.getInt("age", 0)));
         txtViewWt.setText(String.valueOf(personData.getFloat("weight", 0)));
-        txtViewWf.setText(""+personActivityAndGoal.getFloat("goalWeight", 0));
+        txtViewWf.setText("" + personActivityAndGoal.getFloat("goalWeight", 0));
+
+
     }
 
     private void setTxtViewActivityLevel() {
@@ -104,7 +122,7 @@ public class Profile extends Fragment {
     }
 
     private void setTxtViewWeeklyGoal() {
-        if (goal==1) {
+        if (goal == 1) {
             switch (weeklyGainChoice) {
                 case 0:
                     txtViewWeeklyGoal.setText("Gain 0.5kg");
@@ -113,8 +131,7 @@ public class Profile extends Fragment {
                     txtViewWeeklyGoal.setText("Gain 0.25kg");
                     break;
             }
-        }
-        else if (goal==2) {
+        } else if (goal == 2) {
             switch (weeklyLoseChoice) {
                 case 0:
                     txtViewWeeklyGoal.setText("Lose 1kg");
@@ -127,8 +144,7 @@ public class Profile extends Fragment {
                     break;
 
             }
-        }
-        else txtViewWeeklyGoal.setText("Maintain");
+        } else txtViewWeeklyGoal.setText("Maintain");
     }
 
     private void btnUpdateWeight() {
@@ -233,6 +249,8 @@ public class Profile extends Fragment {
 
         SharedPreferences personData = this.getActivity().getSharedPreferences("personData", Context.MODE_PRIVATE);
         SharedPreferences personActivityAndGoal = this.getActivity().getSharedPreferences("personActivityAndGoal", Context.MODE_PRIVATE);
+        personMacros = getActivity().getSharedPreferences("personMacros", getActivity().MODE_PRIVATE);
+
 
         age = personData.getInt("age", 0);
         weight = personData.getFloat("weight", 0);
@@ -241,10 +259,23 @@ public class Profile extends Fragment {
 
         activityLevel = personActivityAndGoal.getInt("activityLevel", 0);
         goal = personActivityAndGoal.getInt("goal", 0);
-        weeklyGainChoice = personActivityAndGoal.getInt("weeklyGainChoice",0);
+        weeklyGainChoice = personActivityAndGoal.getInt("weeklyGainChoice", 0);
         weeklyLoseChoice = personActivityAndGoal.getInt("weeklyLoseChoice", 0);
 
         initViews();
+        customMacrosLayout = view.findViewById(R.id.customMacrosLayout);
+
+
+        if (personMacros.getBoolean("customMacros", false)) {
+            customProtein.setText(""+personMacros.getInt("customP", 0));
+            customCarbs.setText(""+personMacros.getInt("customC", 0));
+            customFats.setText(""+personMacros.getInt("customF", 0));
+            customTotalCalories.setText(""+personMacros.getInt("finalCals", 0));
+            customMacrosSwitch.setChecked(true);
+            customMacrosLayout.setVisibility(View.VISIBLE);
+
+        }
+
         setTxtViewActivityLevel();
         setTxtViewGoal();
         setTxtViewWeeklyGoal();
@@ -259,7 +290,80 @@ public class Profile extends Fragment {
             startActivity(intent);
         });
 
+        customMacrosSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            SharedPreferences.Editor checkEditor = personMacros.edit();
+            if (isChecked) {
+                checkEditor.putBoolean("customMacros", true);
+                checkEditor.apply();
+                customMacrosLayout.setVisibility(View.VISIBLE);
+                customProtein.setText(""+personMacros.getInt("gramsP", 0));
+                customCarbs.setText(""+personMacros.getInt("gramsC", 0));
+                customFats.setText(""+personMacros.getInt("gramsF", 0));
+                customTotalCalories.setText(""+personMacros.getInt("finalCals", 0));
+                saveCustomMacrosData();
+            } else {
+                checkEditor.putBoolean("customMacros", false);
+                checkEditor.apply();
+                customMacrosLayout.setVisibility(View.GONE);
+            }
+        });
+
+
+        customProtein.addTextChangedListener(customMacrosWatcher);
+        customCarbs.addTextChangedListener(customMacrosWatcher);
+        customFats.addTextChangedListener(customMacrosWatcher);
+
+        saveCustomMacros.setOnClickListener(v -> {
+
+            if (customProtein.getText().toString().trim().length()>0
+            && customCarbs.getText().toString().trim().length()>0
+            && customFats.getText().toString().trim().length()>0) {
+
+                saveCustomMacrosData();
+
+                showToast("Custom macros breakdown updated");
+            } else {
+                showToast("Empty Field");
+            }
+        });
+
 
         return view;
     }
+
+    private void saveCustomMacrosData() {
+        SharedPreferences personMacros = getActivity().getSharedPreferences("personMacros", getActivity().MODE_PRIVATE);
+        SharedPreferences.Editor editPersonMacros = personMacros.edit();
+
+        editPersonMacros.putInt("finalCals", Integer.parseInt(customTotalCalories.getText().toString()));
+        editPersonMacros.putBoolean("customMacros", true);
+
+        editPersonMacros.putInt("customP", Integer.parseInt(customProtein.getText().toString()));
+        editPersonMacros.putInt("customC", Integer.parseInt(customCarbs.getText().toString()));
+        editPersonMacros.putInt("customF", Integer.parseInt(customFats.getText().toString()));
+
+        editPersonMacros.apply();
+    }
+
+    private TextWatcher customMacrosWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (customCarbs.getText().toString().trim().length() > 0 && customProtein.getText().toString().trim().length() > 0
+                    && customFats.getText().toString().trim().length() > 0)
+
+                customTotalCalories.setText(String.valueOf(
+                        (Integer.parseInt(customCarbs.getText().toString()) + Integer.parseInt(customProtein.getText().toString())) * 4
+                                + 9 * Integer.parseInt(customFats.getText().toString())));
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }

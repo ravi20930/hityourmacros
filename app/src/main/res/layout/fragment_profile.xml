@@ -41,6 +41,158 @@
                         android:layout_margin="10dp"
                         android:orientation="vertical">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/customMacrosSwitch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Set Custom Macros (in grams)">
+                            </com.google.android.material.switchmaterial.SwitchMaterial>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/customMacrosLayout"
+                            android:layout_width="match_parent"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="5dp"
+                                    android:paddingLeft="2dp"
+                                    android:drawableStart="@drawable/ic_protein_24"
+                                    android:text="Protein"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/customProtein"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawablePadding="5dp"
+                                    android:drawableStart="@drawable/ic_carbs_24"
+                                    android:text="Carbs"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/customCarbs"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="4dp"
+                                    android:drawableStart="@drawable/ic_fats_24"
+                                    android:drawablePadding="7dp"
+                                    android:text="Fats"
+                                    android:textSize="16sp" />
+
+                                <EditText
+                                    android:id="@+id/customFats"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Calculated Calories"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/customTotalCalories"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                            <Button
+                                android:id="@+id/saveCustomMacros"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="5dp"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Save" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -216,8 +368,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_marginBottom="10dp"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <TextView
@@ -253,7 +405,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableStart="@drawable/ic_age"/>
+                                    android:drawableStart="@drawable/ic_age" />
 
                                 <TextView
                                     android:id="@+id/txtViewAge"
@@ -283,7 +435,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableStart="@drawable/ic_weight"/>
+                                    android:drawableStart="@drawable/ic_weight" />
 
                                 <TextView
                                     android:id="@+id/txtViewWeight"
@@ -313,7 +465,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableStart="@drawable/ic_height"/>
+                                    android:drawableStart="@drawable/ic_height" />
 
                                 <TextView
                                     android:id="@+id/txtViewHeight"
@@ -343,7 +495,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:drawableStart="@drawable/ic_gender"/>
+                                    android:drawableStart="@drawable/ic_gender" />
 
                                 <TextView
                                     android:id="@+id/txtViewGender"
@@ -375,26 +527,29 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
                         app:cardCornerRadius="5dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_margin="10dp"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lifestyle"
                                 android:textSize="14sp" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="10dp"
-                                android:drawableStart="@drawable/ic_activity"/>
+                                android:drawableStart="@drawable/ic_activity" />
 
                             <TextView
                                 android:id="@+id/txtViewActivityLevel"
@@ -410,26 +565,29 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
                         app:cardCornerRadius="5dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_margin="10dp"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Goal"
                                 android:textSize="14sp" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="10dp"
-                                android:drawableStart="@drawable/ic_goal_p"/>
+                                android:drawableStart="@drawable/ic_goal_p" />
 
                             <TextView
                                 android:id="@+id/txtViewGoal"
@@ -445,26 +603,29 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
                         app:cardCornerRadius="5dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_margin="10dp"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Weekly Goal"
                                 android:textSize="14sp" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="10dp"
-                                android:drawableStart="@drawable/ic_weekly"/>
+                                android:drawableStart="@drawable/ic_weekly" />
 
                             <TextView
                                 android:id="@+id/txtViewWeeklyGoal"
